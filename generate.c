@@ -1796,6 +1796,9 @@ static obj_t *print_die_tag(struct cu_ctx *ctx,
 		obj = obj_var_new_add(safe_strdup(name), obj);
 		obj_fill_ns(obj, ctx, obj->name);
 		break;
+	case DW_TAG_unspecified_type:
+		obj = obj_basetype_new(safe_strdup("auto"));
+		break;
 	case DW_TAG_base_type:
 		obj = obj_basetype_new(safe_strdup(name));
 		break;
